@@ -1,0 +1,61 @@
+.login {
+  position: absolute;
+  bottom: 10%;
+  animation: slideUp 0.5s ease-out forwards;
+  &-action {
+    display: flex;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 0.5rem;
+      font-size: 0.23rem;
+      width: 3rem;
+      height: 0.8rem;
+      color: #ffffff;
+      border-radius: 0.4rem;
+      background-size: 100%;
+      background-repeat: no-repeat;
+
+    }
+    &-google {
+      background-image: url("@/assets/images/google_btn.png");
+    }
+
+    &-facebook {
+      background-image: url("@/assets/images/facebook_btn.png");
+    }
+  }
+
+  &-later {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.35rem;
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 0.7rem;
+      border-radius: 0.35rem;
+      color: #ffffff;
+      background: rgba(#000000, 0.7);
+    }
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  80% {
+    transform: translateY(-5%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

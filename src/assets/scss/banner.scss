@@ -1,0 +1,70 @@
+.banner {
+  width: 6.6rem;
+  margin: 0 auto;
+  padding: 2px;
+  height: 3.3rem;
+  //border-radius: 20px;
+  //background: linear-gradient(180deg, rgba(255, 0, 214, 1) 50%, rgba(120, 37, 255, 1) 100%);
+
+  .swiper {
+    position: static !important;
+    width: 100%;
+    height: 100%;
+    //border-radius: 20px;
+    background: transparent;
+
+    .swiper-slide {
+      width: 100% !important;
+      height: 100% !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      //border-radius: 20px;
+
+      .q-img {
+        //border-radius: 20px;
+      }
+    }
+  }
+
+  &-pagination {
+    margin-top: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+
+    &-item {
+      $circle-size: 0.3rem;
+      position: relative;
+      width: $circle-size;
+      height: $circle-size;
+      border-radius: 50%;
+      //background: linear-gradient(180deg, rgba(184, 141, 255, 1) 0%, rgba(110, 84, 153, 1) 100%);
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: calc($circle-size - 3px);
+        height: calc($circle-size - 3px);
+        transform: translate(-50%, -50%);
+        background: #40246E;
+        border-radius: 50%;
+      }
+
+      &--active {
+        background: linear-gradient(180deg, rgba(255, 139, 229, 1) 0%, rgba(141, 71, 255, 1) 100%);
+
+        &:before {
+          background: linear-gradient(180deg, rgba(232, 76, 255, 1) 0%, rgba(113, 0, 255, 1) 100%);
+
+        }
+      }
+    }
+  }
+}
+
+

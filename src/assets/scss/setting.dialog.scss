@@ -1,0 +1,275 @@
+.setting-dialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: 70%;
+  overflow: visible;
+  // 高度小餘750時
+  @media (max-height: 750px) {
+    height: 85%;
+  }
+
+  &-close-btn {
+    position: absolute;
+    top: -11%;
+    right: 0;
+    width: 0.9rem;
+    height: 0.9rem;
+    z-index: 100;
+    // 當寬度大於500而且高度在600以下時
+    @media (min-width: 500px) and (max-height: 780px) {
+      top: -15%;
+      width: 0.8rem;
+      height: 0.8rem;
+    }
+  }
+
+  &-tab {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: flex-end;
+    $item-height: 1.05rem;
+    &-item {
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc($item-height - 1px);
+      color: #9C78F4;
+      font-size: 0.35rem;
+      font-weight: bold;
+      //border-top: 1px solid #5C32A4;
+      background: linear-gradient(0deg, rgba(55, 31, 107, 1) 0%, rgba(46, 3, 101, 1) 35%, rgba(34, 0, 94, 1) 100%);
+      $tab-border-radius: 20px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        background: #5C32A4;
+        z-index: -1;
+      }
+
+      &:nth-child(1) {
+        border-radius: $tab-border-radius 0 0 0;
+        &:after {
+          top: -1px;
+          border-radius: $tab-border-radius 0 0 0;
+        }
+      }
+
+      &:nth-child(2) {
+        border-radius: 0 $tab-border-radius 0 0;
+        &:after {
+          top: -1px;
+          border-radius: 0 $tab-border-radius 0 0;
+        }
+      }
+
+      &--active-setting {
+        height: $item-height;
+        color: #FFFFFF;
+        background: linear-gradient(180deg, rgba(142, 112, 255, 1) 0%, rgba(116, 57, 246, 1) 30%, rgba(115, 34, 215, 1) 70%, rgba(115, 34, 215, 1) 100%);
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 101%;
+          height: 100%;
+          background-image: url("@/assets/images/home/setting-tab-active-background2.png");
+          background-size: 103% $item-height;
+          background-repeat: no-repeat;
+          background-position: -0.06rem 0;
+        }
+
+        //&::after {
+        //  content: '';
+        //  position: absolute;
+        //  bottom: 0;
+        //  left: 0;
+        //  width: 100%;
+        //  height: 0.05rem;
+        //  background: linear-gradient(240deg, rgba(246, 195, 119, 1) 0%, rgba(255, 118, 255, 1) 100%);
+        //}
+      }
+
+      &--active-account {
+        height: $item-height;
+        color: #FFFFFF;
+        background: linear-gradient(180deg, rgba(142, 112, 255, 1) 0%, rgba(116, 57, 246, 1) 30%, rgba(115, 34, 215, 1) 70%, rgba(115, 34, 215, 1) 100%);
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url("@/assets/images/home/setting-tab-active-background.png");
+          background-size: 103% $item-height;
+          background-repeat: no-repeat;
+          //background-position: -3px 1px;
+        }
+
+        //&::after {
+        //  content: '';
+        //  position: absolute;
+        //  bottom: 0;
+        //  left: 0;
+        //  width: 100%;
+        //  height: 0.05rem;
+        //  background: linear-gradient(240deg, rgba(246, 195, 119, 1) 0%, rgba(255, 118, 255, 1) 100%);
+        //}
+      }
+
+      span {
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+
+  &-main {
+    position: relative;
+    flex-grow: 1;
+    padding: 0.4rem 0.2rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(51, 1, 127, 1) 1.6%, rgba(107, 0, 179, 1) 100%);
+    //background: linear-gradient(180deg, rgba(51,1,127,1) 0%, rgba(107,0,179,1) 100%);
+    border-radius: 0 0 20px 20px;
+    overflow-y: scroll;
+
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("@/assets/images/home/setting-dialog-bg.png");
+      background-size: 100%;
+      //z-index: -1;
+    }
+
+    &-title-bar {
+      padding: 0.1rem 0.2rem;
+      background: linear-gradient(90deg, rgba(145, 24, 219, 1) 0%, rgba(104, 8, 194, 1) 50%);
+      border-radius: 8px;
+
+      span {
+        font-size: 0.26rem;
+        // 文字漸層
+        background: linear-gradient(180deg, rgba(248, 237, 243, 1) 0%, rgba(224, 167, 249, 1) 50%); /* 設定漸層顏色 */
+        -webkit-background-clip: text; /* 只對文字部分應用背景 */
+        color: transparent; /* 讓文字顏色透明 */
+      }
+    }
+
+    &-item {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0.2rem 0.3rem;
+      color: #FFFFFF;
+      font-size: 0.3rem;
+      font-weight: bold;
+
+      &--one {
+        padding: 0.5rem;
+      }
+
+      &-left, &-right {
+        display: flex;
+        align-items: center;
+      }
+
+      &-left {
+        justify-content: flex-start;
+        white-space: pre;
+      }
+
+      &-right {
+        justify-content: flex-end;
+
+        &-user {
+          display: flex;
+          align-items: center;
+          color: #8FE9FD;
+
+          &-icon {
+            width: 0.5rem;
+            height: 0.5rem;
+            margin-left: 0.25rem;
+          }
+        }
+
+        &-help {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.3rem;
+
+          & > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 1.2rem;
+            height: 1.2rem;
+            color: #FFFFFF;
+            font-size: 0.25rem;
+            background-image: url("@/assets/images/home/help-icon.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+
+            .q-img {
+              width: 0.35rem;
+              height: 0.5rem;
+              margin-bottom: 0.1rem;
+            }
+          }
+        }
+      }
+    }
+
+    &-lang-btn {
+      $lang-btn-height: 0.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 5%;
+      width: 2.3rem;
+      height: $lang-btn-height;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: calc($lang-btn-height / 2);
+      transform: translateY(0.1rem);
+
+      &-en {
+        background-image: url("@/assets/images/home/lang-btn-en.png");
+      }
+
+      &-zh {
+        background-image: url("@/assets/images/home/lang-btn-cn.png");
+      }
+
+      //span {
+      //  color: transparent; /* 讓文字顏色透明 */
+      //  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(118, 198, 255, 1) 45%);
+      //  -webkit-background-clip: text; /* 只對文字部分應用背景 */
+      //  text-shadow: #103C74 0.1em 0.1em 0.2em
+      //}
+
+    }
+  }
+}
+
+
