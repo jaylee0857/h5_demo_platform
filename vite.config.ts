@@ -10,7 +10,7 @@ import { viteStaticCopy } from "vite-plugin-static-copy";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/game_platform/", // 設置基礎路徑 為了配合github action
+  base: "/h5_demo_platform/", // 設置基礎路徑 為了配合github action
   plugins: [
     vue({
       template: { transformAssetUrls }
